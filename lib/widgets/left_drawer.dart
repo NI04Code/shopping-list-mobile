@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shopping_list/screens/menu.dart';
 import 'package:shopping_list/screens/shoplist_form.dart';
+import 'package:shopping_list/screens/list_product.dart';
 
 
 class LeftDrawer extends StatelessWidget {
@@ -12,9 +13,8 @@ class LeftDrawer extends StatelessWidget {
       child: ListView(
         children: [
           const DrawerHeader(
-            // TODO (done): Bagian drawer header
             decoration: BoxDecoration(
-            color: Colors.indigo,
+            color: Colors.green,
           ),
           child: Column(
             children: [
@@ -29,7 +29,6 @@ class LeftDrawer extends StatelessWidget {
               ),
               Padding(padding: EdgeInsets.all(10)),
               Text("Catat seluruh keperluan belanjamu di sini!",
-                // TODO (done): Tambahkan gaya teks dengan center alignment, font ukuran 15, warna putih, dan weight biasa
                   textAlign: TextAlign.center,
                   style: TextStyle(
                     fontSize: 15,
@@ -40,7 +39,6 @@ class LeftDrawer extends StatelessWidget {
             ],
           ),
           ),
-          // TODO (done): Bagian routing
           ListTile(
               leading: const Icon(Icons.home_outlined),
               title: const Text('Halaman Utama'),
@@ -56,12 +54,23 @@ class LeftDrawer extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.add_shopping_cart),
               title: const Text('Tambah Produk'),
-              // Bagian redirection ke ShopFormPage
+              // Bagian redirection ke 
               onTap: () {
                 Navigator.push(context,
                   MaterialPageRoute(builder: (context) => const ShopFormPage()));
               },
-          ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.shopping_basket),
+              title: const Text('Daftar Produk'),
+              onTap: () {
+                  // Route menu ke halaman produk
+                  Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const ProductPage()),
+                  );
+              },
+            ),
         ],
       ),
     );
